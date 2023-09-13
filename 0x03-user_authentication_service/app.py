@@ -133,10 +133,11 @@ def update_password() -> str:
         # Attempt to update the password with the new password
         AUTH.update_password(reset_token, new_password)
     except ValueError:
-        """ If the reset token is invalid, return an HTTP 403 error"""
+    # If the reset token is invalid, return an HTTP 403 error
         abort(403)
     """If the password was successfully updated, return a JSON object with the
-    """ user's email and a success message.
+     user's email and a success message.
+     """
     return jsonify({"email": email, "message": "Password updated"})
 
 
